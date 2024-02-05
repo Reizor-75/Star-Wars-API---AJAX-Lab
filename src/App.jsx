@@ -1,11 +1,6 @@
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-
-//css
-import './App.css'
-
 // npm module
 import { useState, useEffect } from "react"
+import { Route, Routes } from "react-router-dom"
 
 //services
 import * as sw from "../services/sw-api"
@@ -13,6 +8,10 @@ import * as sw from "../services/sw-api"
 //components
 import Title from '../components/Title'
 import StarshipList from '../components/StarshipList'
+
+//css
+import './App.css'
+import StarshipDetails from "../pages/StarshipDetails"
 
 function App() {
   const [starships, setStarships] = useState ([])
@@ -28,7 +27,10 @@ function App() {
   return (
     <main>
       <Title />
-      <StarshipList starships={starships} />
+      <Routes> 
+        <Route path = "/" element={<StarshipList starships={starships} />} />
+        <Route path = "/starship/:starshipId" element={<StarshipDetails />} />
+      </Routes>
     </main>
   )
 }

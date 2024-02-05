@@ -4,13 +4,13 @@ const StarshipList = (props) => {
   return (  
     <>
       <h1>Starships</h1>
-      <ul> 
+      <div className="link-container"> 
         {props.starships?.map((starship, idx) => 
-          <p className="link-container" key={idx}>
-            {starship.name}
-          </p>
+          <div className="card"  key={idx}>
+            <Link to={`/starship/${idx}`} >{starship.name}</Link>
+          </div>
         )}
-      </ul>
+      </div>
     </>
   );
 }
