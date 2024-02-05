@@ -4,20 +4,30 @@
 //css
 import './App.css'
 
-
 // npm module
-import { Route, Routes, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from "react"
 
 //services
 import * as sw from "../services/sw-api"
 
+//components
+import Title from '../components/Title'
+
 function App() {
+  const [starships, setStarships] = useState ([])
+
+  useEffect(()=>{
+    const fetchStarships = async() =>{
+      const starshipData = await sw.getAllStarships()
+      setStarships(starshipData)
+    }
+    fetchStarships()
+  }, [])
 
   return (
-    <>
-      
-    </>
+    <main>
+      <Title />
+    </main>
   )
 }
 

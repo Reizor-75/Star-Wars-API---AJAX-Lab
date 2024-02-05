@@ -1,7 +1,8 @@
 #root {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
 }
 
@@ -39,4 +40,15 @@
 
 .read-the-docs {
   color: #888;
+}
+
+main{
+  display: flex;
+  align-items: flex-start;
+}
+
+.title-bar{
+  padding: 16px;
+  width: 100%;
+  background-color: darkslategrey;
 }
