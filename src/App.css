@@ -44,11 +44,16 @@
 
 main{
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
 }
 
 .title-bar{
   padding: 16px;
   width: 100%;
   background-color: darkslategrey;
+}
+
+.link-container{
+  display: flex;
+  flex-wrap: wrap;
 }

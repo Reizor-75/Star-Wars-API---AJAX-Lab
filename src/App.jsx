@@ -12,6 +12,7 @@ import * as sw from "../services/sw-api"
 
 //components
 import Title from '../components/Title'
+import StarshipList from '../components/StarshipList'
 
 function App() {
   const [starships, setStarships] = useState ([])
@@ -19,7 +20,7 @@ function App() {
   useEffect(()=>{
     const fetchStarships = async() =>{
       const starshipData = await sw.getAllStarships()
-      setStarships(starshipData)
+      setStarships(starshipData.results)
     }
     fetchStarships()
   }, [])
@@ -27,6 +28,7 @@ function App() {
   return (
     <main>
       <Title />
+      <StarshipList starships={starships} />
     </main>
   )
 }
