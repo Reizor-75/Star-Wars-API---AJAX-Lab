@@ -16,6 +16,9 @@ const StarshipDetails = () => {
     fetchStarshipsDetails()
   }, [starshipId])
 
+  
+  if(!starshipDetails.name) return <h1>Loading Details...</h1>
+
   return (  
     <main className='detail-main'>
       <div className='starship-detail-card'>
