@@ -1,12 +1,29 @@
-import { useParams } from 'react-router-dom'
+// npm modules
+import { useState, useEffect } from 'react'
+import { useParams, Link } from 'react-router-dom'
 
-const StarshipDetails = (props) => {  
+import { getStarshipData } from '../services/sw-api'
+
+const StarshipDetails = () => {  
+  const [starshipDetails, setStarshipsDetails] = useState({})
   const {starshipId} = useParams()
 
+  useEffect(() =>{
+    const fetchStarshipsDetails = async() =>{
+      const starshipData = await getStarshipData(starshipId)
+      setStarshipsDetails(starshipData)
+    }
+    fetchStarshipsDetails()
+  }, [starshipId])
+
   return (  
-    <>
-      <h1>hello</h1>
-    </>
+    <main className='detail-main'>
+      <div className='starship-detail-card'>
+        <h2> Name: {starshipDetails.name} </h2>
+        <h2> Model: {starshipDetails.model}</h2>
+        <Link to={`/`} > RETURN </Link>
+      </div>
+    </main>
   );
 }
 
